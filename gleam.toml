@@ -1,11 +1,11 @@
 name = "glee_gd"
-version = "1.0.0"
+version = "1.0.1"
 
 # Fill out these fields if you intend to generate HTML documentation or publish
 # your project to the Hex package manager.
 #
 description = "Gleam bindings for erlang/egd."
-licences = ["Apache-2.0"]
+licences = ["MIT"]
 repository = { type = "github", user = "stevetoro", repo = "glee_gd" }
 # links = [{ title = "Website", href = "" }]
 #
@@ -14,7 +14,7 @@ repository = { type = "github", user = "stevetoro", repo = "glee_gd" }
 
 [dependencies]
 gleam_stdlib = ">= 0.40.0 and < 1.0.0"
-simplifile = ">= 2.1.0 and < 3.0.0"
 
 [dev-dependencies]
 gleeunit = ">= 1.0.0 and < 2.0.0"
+simplifile = ">= 2.1.0 and < 3.0.0"
