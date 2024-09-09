@@ -97,9 +97,9 @@ png_type(r8g8b8) -> ?TRUECOLOUR.
 
 create_chunk(Bin,Z) when is_list(Bin) ->
     create_chunk(list_to_binary(Bin),Z);
-create_chunk(Bin,Z) when is_binary(Bin) ->
+create_chunk(Bin,_Z) when is_binary(Bin) ->
     Sz = size(Bin)-4,
-    Crc = zlib:crc32(Z,Bin),
+    Crc = erlang:crc32(Bin),
     <<Sz:32,Bin/binary,Crc:32>>.
 
 % End tainted
