@@ -1,5 +1,5 @@
 import gleam/bit_array
-import glee_gd
+import glee_gd as egd
 import gleeunit
 import gleeunit/should
 import simplifile
@@ -9,26 +9,26 @@ pub fn main() {
 }
 
 pub fn render_ellipse_test() {
-  let image = glee_gd.create(500, 500)
-  let color = glee_gd.color(#(109, 74, 126))
-  glee_gd.filled_ellipse(image, #(100, 400), #(400, 100), color)
-  glee_gd.render(image)
+  let color = egd.color(#(109, 74, 126))
+  egd.create(500, 500)
+  |> egd.filled_ellipse(#(100, 400), #(400, 100), color)
+  |> egd.render
   |> should_be_fixture("elixir-ellipse")
 }
 
 pub fn render_rectangle_test() {
-  let image = glee_gd.create(500, 500)
-  let color = glee_gd.color(#(0, 172, 216))
-  glee_gd.filled_rectangle(image, #(100, 400), #(400, 100), color)
-  glee_gd.render(image)
+  let color = egd.color(#(0, 172, 216))
+  egd.create(500, 500)
+  |> egd.filled_rectangle(#(100, 400), #(400, 100), color)
+  |> egd.render
   |> should_be_fixture("go-rectangle")
 }
 
 pub fn render_triangle_test() {
-  let image = glee_gd.create(500, 500)
-  let color = glee_gd.color(#(255, 175, 243))
-  glee_gd.filled_triangle(image, #(250, 125), #(100, 375), #(400, 375), color)
-  glee_gd.render(image)
+  let color = egd.color(#(255, 175, 243))
+  egd.create(500, 500)
+  |> egd.filled_triangle(#(250, 125), #(100, 375), #(400, 375), color)
+  |> egd.render
   |> should_be_fixture("gleam-triangle")
 }
 

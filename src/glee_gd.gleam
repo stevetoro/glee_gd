@@ -1,58 +1,68 @@
-pub type Pid
+import glee_gd/egd.{type Color, type Image, type Point, type RGB}
 
-pub type Image =
-  Pid
+pub fn arc(image: Image, p1: Point, p2: Point, color: Color) {
+  egd.arc(image, p1, p2, color)
+  image
+}
 
-pub type Color =
-  #(Float, Float, Float, Float)
+pub fn arcd(image: Image, p1: Point, p2: Point, d: Int, color: Color) {
+  egd.arcd(image, p1, p2, d, color)
+  image
+}
 
-pub type RGB =
-  #(Int, Int, Int)
+pub fn color(color: RGB) {
+  egd.color(color)
+}
 
-pub type Point =
-  #(Int, Int)
+pub fn create(width: Int, height: Int) {
+  egd.create(width, height)
+}
 
-@external(erlang, "egd", "arc")
-pub fn arc(image: Image, p1: Point, p2: Point, color: Color) -> Nil
+pub fn destroy(image: Image) {
+  egd.destroy(image)
+}
 
-@external(erlang, "egd", "arc")
-pub fn arcd(image: Image, p1: Point, p2: Point, d: Int, color: Color) -> Nil
+pub fn filled_ellipse(image: Image, p1: Point, p2: Point, color: Color) {
+  egd.filled_ellipse(image, p1, p2, color)
+  image
+}
 
-@external(erlang, "egd", "color")
-pub fn color(color: RGB) -> Color
+pub fn filled_rectangle(image: Image, p1: Point, p2: Point, color: Color) {
+  egd.filled_rectangle(image, p1, p2, color)
+  image
+}
 
-@external(erlang, "egd", "create")
-pub fn create(width: Int, height: Int) -> Image
-
-@external(erlang, "egd", "destroy")
-pub fn destroy(image: Image) -> Nil
-
-@external(erlang, "egd", "filledEllipse")
-pub fn filled_ellipse(image: Image, p1: Point, p2: Point, color: Color) -> Nil
-
-@external(erlang, "egd", "filledRectangle")
-pub fn filled_rectangle(image: Image, p1: Point, p2: Point, color: Color) -> Nil
-
-@external(erlang, "egd", "filledTriangle")
 pub fn filled_triangle(
   image: Image,
   p1: Point,
   p2: Point,
   p3: Point,
   color: Color,
-) -> Nil
+) {
+  egd.filled_triangle(image, p1, p2, p3, color)
+  image
+}
 
-@external(erlang, "egd", "information")
-pub fn information(image: Image) -> Nil
+pub fn information(image: Image) {
+  egd.information(image)
+  image
+}
 
-@external(erlang, "egd", "line")
-pub fn line(image: Image, p1: Point, p2: Point, color: Color) -> Nil
+pub fn line(image: Image, p1: Point, p2: Point, color: Color) {
+  egd.line(image, p1, p2, color)
+  image
+}
 
-@external(erlang, "egd", "polygon")
-pub fn polygon(image: Image, points: List(Point), color: Color) -> Nil
+pub fn polygon(image: Image, points: List(Point), color: Color) {
+  egd.polygon(image, points, color)
+  image
+}
 
-@external(erlang, "egd", "rectangle")
-pub fn rectangle(image: Image, p1: Point, p2: Point, color: Color) -> Nil
+pub fn rectangle(image: Image, p1: Point, p2: Point, color: Color) {
+  egd.rectangle(image, p1, p2, color)
+  image
+}
 
-@external(erlang, "egd", "render")
-pub fn render(image: Image) -> String
+pub fn render(image: Image) -> String {
+  egd.render(image)
+}
