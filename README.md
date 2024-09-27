@@ -9,14 +9,19 @@ Gleam bindings for the [Erlang Graphical Drawer (EGD)](https://github.com/erlang
 gleam add glee_gd
 ```
 ```gleam
-import glee_gd
+import glee_gd as egd
 
 pub fn main() {
-  let image = glee_gd.create(500, 500)
-  let color = glee_gd.color(#(109, 74, 126))
-  glee_gd.filled_ellipse(image, #(100, 400), #(400, 100), color)
-  let binary = glee_gd.render(image)
-  // Do something with binary in memory or write it to a file.
+  let color = egd.color(#(109, 74, 126))
+  let image =
+    egd.create(500, 500)
+    |> egd.filled_ellipse(image, #(100, 400), #(400, 100), color)
+
+  // Render the image to get a binary that can be written to a file.
+  let binary = image |> egd.render
+
+  // Destroy the image when you're done using it.
+  image |> egd.destroy
 }
 ```
 
